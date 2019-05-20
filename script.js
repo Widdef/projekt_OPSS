@@ -1,9 +1,10 @@
-var canvas = document.querySelector("#mario");
+var canvas = document.querySelector('#mario');
 var ctx = canvas.getContext('2d');
 
-var canvas_style = window.getComputedStyle(canvas);
-var can_width = canvas_style.width;
-var can_height = canvas_style.height;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const can_width = canvas.width;
+const can_height = canvas.height;
 
 function keyDownHandler(e){
 
@@ -12,12 +13,17 @@ function keyUpHandler(e) {
     var kod = e.keyCode;
     
 }
+
+function verlet(){
+    
+}
+
 function genplayer() {
-    this.size = 3;
-    this.x = 4;
-    this.y = 4;
-    this.vx = 0;
-    this.vy = 0;
+    this.size;
+    this.x;
+    this.y;
+    this.vx;
+    this.vy;
     this.color = `rgb(120,40,255)`;
     this.rysowanie = function(){
         ctx.beginPath();
@@ -37,17 +43,20 @@ function plansza(){
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.rect(this.x,this.y,this.lenght,this.height);
-        ctx.stroke();
         ctx.fill();
     }
 }
-var player = new genplayer;
-player.rysowanie();
+
 var field = new plansza;
 field.x = 0;
-field.y = 1260;
-field.lenght = 800;
 field.height = 20;
+field.y = can_height - field.height;
+field.lenght = can_width;
 field.rysowanie();
+var player = new genplayer;
+player.size = 5;
+player.x = 10;
+player.y = field.y - player.size;
+player.rysowanie();
 document.addEventListener("keydown", keyUpHandler);
 document.addEventListener("keyup", keyUpHandler);

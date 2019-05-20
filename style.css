@@ -10,7 +10,5 @@ body{
     background-color: lightblue;
     width: 95%;
     height: 95%;
-    margin: 15px;
-    min-width: 1000px;
-    min-height: 800px;
+    margin: 10px;
 }
