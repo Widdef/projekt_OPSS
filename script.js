@@ -10,10 +10,10 @@ function keyDownHandler(e){
     var kod = e.keyCode;
     switch(kod)
     {
-        case 39: player.x += 1; break; // RIGHT
-        case 37: player.y -= 1; break; // LEFT
-        case 38: player.y -= 1; break; // UP
-        case 40: player.y += 1; break; // DOWN
+        case 39: player.vx += 1; break; // RIGHT
+        case 37: player.vx -= 1; break; // LEFT
+        case 38: player.vy -= 1; break; // UP
+        case 40: player.vy += 1; break; // DOWN
     }
 }
 
@@ -32,64 +32,38 @@ function verlet(r,v,dt){
     r = r + v * dt + 5 * dt*dt;
     v = v + 10 * dt;
 }
+//import game_element from "./game_element.js";
 
-function genplayer() {
-    this.size;
-    this.life;
-    this.x;
-    this.y;
-    this.vx;
-    this.vy;
-    this.color = `rgb(120,40,255)`;
-    this.rysowanie = function(){
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-        ctx.stroke();
-        ctx.fill();
-    }
-}
-
-function plansza(){
-    this.x;
-    this.y;
-    this.lenght;
-    this.height;
-    this.color = `rgb(0,255,0)`;
-    this.rysowanie = function(){
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
-        ctx.rect(this.x,this.y,this.lenght,this.height);
-        ctx.fill();
-    }
-}
-
-
-var field = new plansza;
+var field = new game_element;
 field.x = 0;
 field.height = 40;
+field.color = `rgb(0,255,0)`;
 field.y = can_height - field.height;
 field.lenght = can_width;
-field.rysowanie();
+field.rysowanie(1);
 
-var player = new genplayer;
+var player = new game_element;
 player.size = 10;
+player.color = `rgb(120,40,255)`;
 player.x = player.size + 10;
 player.y = field.y - player.size;
 player.life = 3;
-player.rysowanie();
+player.rysowanie(0);
 
 var i = 0;
 document.addEventListener("keydown", keyDownHandler);
 //document.addEventListener("keyup", keyUpHandler);
-while(i<1000)
+window.setInterval(function(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    player.move();
+    player.rysowanie(0);
+    field.rysowanie(1);
+    i++;
+},1000);
+if(player.x < 0 || player.y < 0 || player.x > can_width || player.y > field.y)
 {
-    setTimeout(function(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        player.rysowanie();
-        field.rysowanie();
-        i++;
-    },100*i++);
+    alert("cos nie tak");
+    player.life--;
 }
 /*while(player.life)
 {
