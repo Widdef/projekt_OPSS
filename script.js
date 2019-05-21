@@ -64,6 +64,7 @@ function plansza(){
     }
 }
 
+
 var field = new plansza;
 field.x = 0;
 field.height = 40;
