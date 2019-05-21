@@ -7,19 +7,35 @@ const can_width = canvas.width;
 const can_height = canvas.height;
 
 function keyDownHandler(e){
-
-}
-function keyUpHandler(e) {
     var kod = e.keyCode;
-    
+    switch(kod)
+    {
+        case 39: player.x += 1; break; // RIGHT
+        case 37: player.y -= 1; break; // LEFT
+        case 38: player.y -= 1; break; // UP
+        case 40: player.y += 1; break; // DOWN
+    }
 }
 
-function verlet(){
-    
+/*function keyUpHandler(e) {
+    var kod = e.keyCode;
+    switch(kod)
+    {
+        case 39: alert("1"); break; // RIGHT
+        case 37: alert("a2"); break; // LEFT
+        case 38: alert("3"); break; // UP
+        case 40: alert("4"); break; // DOWN
+    }
+}*/
+
+function verlet(r,v,dt){
+    r = r + v * dt + 5 * dt*dt;
+    v = v + 10 * dt;
 }
 
 function genplayer() {
     this.size;
+    this.life;
     this.x;
     this.y;
     this.vx;
@@ -33,6 +49,7 @@ function genplayer() {
         ctx.fill();
     }
 }
+
 function plansza(){
     this.x;
     this.y;
@@ -49,14 +66,39 @@ function plansza(){
 
 var field = new plansza;
 field.x = 0;
-field.height = 20;
+field.height = 40;
 field.y = can_height - field.height;
 field.lenght = can_width;
 field.rysowanie();
+
 var player = new genplayer;
-player.size = 5;
-player.x = 10;
+player.size = 10;
+player.x = player.size + 10;
 player.y = field.y - player.size;
+player.life = 3;
 player.rysowanie();
-document.addEventListener("keydown", keyUpHandler);
-document.addEventListener("keyup", keyUpHandler);
+
+var i = 0;
+document.addEventListener("keydown", keyDownHandler);
+//document.addEventListener("keyup", keyUpHandler);
+while(i<1000)
+{
+    setTimeout(function(){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        player.rysowanie();
+        field.rysowanie();
+        i++;
+    },100*i++);
+}
+/*while(player.life)
+{
+    setTimeout(function(){
+        ctx.clearRect(0, 0, canvas.width, can_height - field.height);
+        player.rysowanie();
+        i++;
+    },100*i);
+    if(i == 10000)
+    {
+        player.life = 0;
+    }
+}*/
