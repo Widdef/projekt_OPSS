@@ -23,7 +23,7 @@ function game_element() {
     this.move = function(){
         this.x += this.vx;
         this.y += this.vy;
-        if(this.y + this.size < can_height - field.height)
+        if((this.y + this.size < can_height - field.height))
         {
             this.vy += 1;
         }

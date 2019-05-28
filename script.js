@@ -2,8 +2,8 @@ function keyDownHandler(e){
     var kod = e.keyCode;
     switch(kod)
     {
-        case 39: player.vx = 1; break; // RIGHT
-        case 37: player.vx = -1; break; // LEFT
+        case 39: player.vx = 3; break; // RIGHT
+        case 37: player.vx = -3; break; // LEFT
         case 38: 
             // console.log(player.y + player.size);
             // console.log(can_height - field.height);
@@ -24,6 +24,22 @@ function keyUpHandler(e) {
         case 37: player.vx = 0; break; // LEFT
         // case 38: player.vy = 0; break; // UP
         // case 40: player.vy = 0; break; // DOWN
+    }
+}
+
+function colision(e){
+    var przemiszczenie
+    if(player.vx!=0)
+    {
+        if((player.y > e.y)&&(player.y < e.y+e.height))
+        {
+            przemiszczenie = player.x + player.vx;
+            if((przemeszczenie > e.x)&& (przemiszczenie < e.x + e.width))
+            {
+                return false;
+            }
+        }
+        
     }
 }
 
@@ -53,15 +69,17 @@ player.x = player.size + 10;
 player.y = field.y - player.size;
 player.life = 3;
 
-var blok = new game_element;
-blok.color = `rgb(150,75,0)`;
-blok.lenght = single_block.x;
-blok.height = single_block.y;
-blok.type = 1;
-blok.y = can_height - field.height - blok.height - 50;
-blok.x = 100;
-
-
+var blok = new Array;
+for(var i = 0; i < 3; i++)
+{
+    blok[i] = new game_element;
+    blok[i].color = `rgb(150,75,0)`;
+    blok[i].lenght = single_block.x;
+    blok[i].height = single_block.y;
+    blok[i].type = 1;
+    blok[i].y = can_height - field.height - blok[i].height - 50;
+    blok[i].x = 100 + i*single_block.x;
+}
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
@@ -70,7 +88,9 @@ function print()
 {
     player.rysowanie();
     field.rysowanie();
-    blok.rysowanie();
+    blok[0].rysowanie();
+    blok[1].rysowanie();
+    blok[2].rysowanie();
 }
 function move()
 {
