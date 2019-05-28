@@ -5,7 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const can_width = canvas.width;
 const can_height = canvas.height;
-const dt = 10;
+//const dt = 10;
 
 function keyDownHandler(e){
     var kod = e.keyCode;
@@ -13,7 +13,7 @@ function keyDownHandler(e){
     {
         case 39: player.vx = 1; break; // RIGHT
         case 37: player.vx = -1; break; // LEFT
-        case 38: player.vy = -1; verlet(player.x,player.y,player.vx,player.vy); break; // UP
+        case 38: player.vy = -1; verlet(player.x,player.y,player.vy); break; // UP
         case 40: player.vy = 1; break; // DOWN
     }
 }
@@ -57,9 +57,21 @@ player.rysowanie(0);
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
-window.setInterval(function(){
+
+function callback()
+{
+    window.requestAnimationFrame(callback);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.move();
     player.rysowanie(0);
     field.rysowanie(1);
-},dt);
+}
+
+window.requestAnimationFrame(callback);
+
+// window.setInterval(function(){
+//     ctx.clearRect(0, 0, canvas.width, canvas.height);
+//     player.move();
+//     player.rysowanie(0);
+//     field.rysowanie(1);
+// },dt);
