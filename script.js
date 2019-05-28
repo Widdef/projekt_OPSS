@@ -13,8 +13,16 @@ function keyDownHandler(e){
     {
         case 39: player.vx = 1; break; // RIGHT
         case 37: player.vx = -1; break; // LEFT
-        case 38: player.vy = -1; verlet(player.x,player.y,player.vy); break; // UP
-        case 40: player.vy = 1; break; // DOWN
+        case 38: 
+            console.log(player.y + player.size);
+            console.log(can_height - field.height);
+            if(player.y + player.size >= can_height - field.height)
+            {
+                player.vy = -20;
+
+            };
+            break; // UP
+        // case 40: player.vy = 1; break; // DOWN
     }
 }
 
@@ -25,18 +33,18 @@ function keyUpHandler(e) {
         case 39: player.vx = 0; break; // RIGHT
         case 37: player.vx = 0; break; // LEFT
         case 38: player.vy = 0; break; // UP
-        case 40: player.vy = 0; break; // DOWN
+        // case 40: player.vy = 0; break; // DOWN
     }
 }
 
-function verlet(rx,ry,vy){
-    let dt_p = dt / 1000;
-    do{
-        rx = rx + player.vx * dt_p + 5 * dt_p*dt_p;
-        ry = ry + vy * dt_p + 5 * dt_p*dt_p;
-        vy = vy - 10 * dt_p;
-    }while(ry>field.y);
-}
+// function verlet(rx,ry,vy){
+//     let dt_p = dt / 1000;
+//     do{
+//         rx = rx + player.vx * dt_p + 5 * dt_p*dt_p;
+//         ry = ry + vy * dt_p + 5 * dt_p*dt_p;
+//         vy = vy - 10 * dt_p;
+//     }while(ry>field.y);
+// }
 //import game_element from "./game_element.js";
 
 var field = new game_element;
