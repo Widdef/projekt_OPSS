@@ -8,10 +8,11 @@ function game_element() {
     this.vx = 0;
     this.vy = 0;
     this.color;
-    this.rysowanie = function(type){
+    this.type;
+    this.rysowanie = function(){
         ctx.beginPath();
         ctx.fillStyle = this.color;
-        switch(type)
+        switch(this.type)
         {
             case 0: ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); break;
             case 1: ctx.rect(this.x,this.y,this.lenght,this.height); break;
@@ -24,14 +25,16 @@ function game_element() {
         this.y += this.vy;
         if(this.y + this.size < can_height - field.height)
         {
-            this.vy += 2;
-            // console.log(this.vy);
+            this.vy += 1;
         }
         else
         {
             this.vy = 0;
         }
-        
+        if(this.y + this.size > can_height - field.height)
+        {
+            this.y = can_height - field.height - this.size;
+        }
     }
 }
 //export {game_element};
