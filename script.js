@@ -29,16 +29,17 @@ function keyUpHandler(e) {
 }
 
 function colision(e){
+    //console.log(e.y);
     var przemieszczenie;
     if(player.vx!=0)
     {
-        if((player.y > e.y)&&(player.y < e.y+e.height))
+        if((player.y + player.size > e.y)&&(player.y < e.y+e.height))
         {
-            console.log("1");
+            //console.log("132132");
             przemieszczenie = player.x + player.vx;
-            console.log(przemieszczenie);
-            console.log(e.x);
-            if((przemieszczenie > e.x)&& (przemieszczenie < e.x + e.width))
+            //console.log(przemieszczenie);
+            //console.log(e.x);
+            if((przemieszczenie < e.x)&& (przemieszczenie > e.x + e.width))
             {
                 console.log("2");
                 return true;
@@ -48,11 +49,11 @@ function colision(e){
     }
     if(player.vy!=0)
     {
-        if((player.x > e.x)&&(player.x < e.x+e.width))
+        if((player.x >= e.x)&&(player.x <= e.x+e.width))
         {
-            console.log("3");
+            console.log("31231");
             przemieszczenie = player.y + player.vy;
-            if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.width))
+            if((przemieszczenie < e.y)&& (przemieszczenie > e.y + e.width))
             {
                 console.log("4");
                 return true;
@@ -88,6 +89,7 @@ player.color = `rgb(120,40,255)`;
 player.x = player.size + 10;
 player.y = field.y - player.size;
 player.life = 3;
+//console.log("player: "+ player.x);
 
 var blok = new Array;
 for(var i = 0; i < 3; i++)
@@ -116,6 +118,7 @@ function print()
 function move()
 {
     player.move();
+    //console.log(player.x);
 }
     
 function callback()

@@ -26,13 +26,13 @@ function game_element() {
         let flag = true;
         for(var i = 0; i < obiekty.length;i++)
         {
+            //console.log(obiekty[i]);
             if(colision(obiekty[i]))
             {
                 flag = false;
-                console.log("tu jest");
             }   
         }
-        if(flag)
+        if(this.y + this.size < can_height - field.height)
         {
             this.vy += 1;
         }
