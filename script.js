@@ -1,3 +1,4 @@
+var obiekty = new Array;
 function keyDownHandler(e){
     var kod = e.keyCode;
     switch(kod)
@@ -28,19 +29,38 @@ function keyUpHandler(e) {
 }
 
 function colision(e){
-    var przemiszczenie
+    var przemieszczenie;
     if(player.vx!=0)
     {
         if((player.y > e.y)&&(player.y < e.y+e.height))
         {
-            przemiszczenie = player.x + player.vx;
-            if((przemeszczenie > e.x)&& (przemiszczenie < e.x + e.width))
+            console.log("1");
+            przemieszczenie = player.x + player.vx;
+            console.log(przemieszczenie);
+            console.log(e.x);
+            if((przemieszczenie > e.x)&& (przemieszczenie < e.x + e.width))
             {
-                return false;
+                console.log("2");
+                return true;
             }
         }
         
     }
+    if(player.vy!=0)
+    {
+        if((player.x > e.x)&&(player.x < e.x+e.width))
+        {
+            console.log("3");
+            przemieszczenie = player.y + player.vy;
+            if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.width))
+            {
+                console.log("4");
+                return true;
+            }
+        }
+        
+    }
+    return false;
 }
 
 // function verlet(rx,ry,vy){
@@ -60,7 +80,7 @@ field.height = 40;
 field.color = `rgb(0,255,0)`;
 field.y = can_height - field.height;
 field.lenght = can_width;
-
+obiekty[0] = field;
 var player = new game_element;
 player.size = 10;
 player.type = 0;
@@ -79,8 +99,9 @@ for(var i = 0; i < 3; i++)
     blok[i].type = 1;
     blok[i].y = can_height - field.height - blok[i].height - 50;
     blok[i].x = 100 + i*single_block.x;
+    obiekty[i+1] = blok[i];
+    console.log(blok[i].x);
 }
-
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
 

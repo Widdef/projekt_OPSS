@@ -23,7 +23,16 @@ function game_element() {
     this.move = function(){
         this.x += this.vx;
         this.y += this.vy;
-        if((this.y + this.size < can_height - field.height))
+        let flag = true;
+        for(var i = 0; i < obiekty.length;i++)
+        {
+            if(colision(obiekty[i]))
+            {
+                flag = false;
+                console.log("tu jest");
+            }   
+        }
+        if(flag)
         {
             this.vy += 1;
         }
