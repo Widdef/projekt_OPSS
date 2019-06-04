@@ -35,11 +35,8 @@ function colision(e){
     {
         if((player.y + player.size > e.y)&&(player.y < e.y+e.height))
         {
-            //console.log("132132");
             przemieszczenie = player.x + player.vx;
-            //console.log(przemieszczenie);
-            //console.log(e.x);
-            if((przemieszczenie < e.x)&& (przemieszczenie > e.x + e.width))
+            if((przemieszczenie > e.x)&& (przemieszczenie < e.x + e.lenght))
             {
                 console.log("2");
                 return true;
@@ -47,13 +44,12 @@ function colision(e){
         }
         
     }
-    if(player.vy!=0)
+    if(player.vy!=0)//To działa
     {
-        if((player.x >= e.x)&&(player.x <= e.x+e.width))
+        if((player.x + player.size >= e.x)&&(player.x <= e.x + e.lenght))
         {
-            console.log("31231");
             przemieszczenie = player.y + player.vy;
-            if((przemieszczenie < e.y)&& (przemieszczenie > e.y + e.width))
+            if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.height))
             {
                 console.log("4");
                 return true;
