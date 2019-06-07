@@ -6,12 +6,10 @@ function keyDownHandler(e){
         case 39: player.vx = 3; break; // RIGHT
         case 37: player.vx = -3; break; // LEFT
         case 38: 
-            // console.log(player.y + player.size);
-            // console.log(can_height - field.height);
             for(let i = 0; i < obiekty.length;i++)
             {
                 //if((player.y + player.size >= can_height - field.height)||player.vy == 0)
-                if(colision(obiekty[i]))
+                if(!colision(obiekty[i]))
                 {
                     player.vy = -20;
                 }
@@ -27,8 +25,6 @@ function keyUpHandler(e) {
     {
         case 39: player.vx = 0; break; // RIGHT
         case 37: player.vx = 0; break; // LEFT
-        // case 38: player.vy = 0; break; // UP
-        // case 40: player.vy = 0; break; // DOWN
     }
 }
 

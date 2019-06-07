@@ -21,13 +21,13 @@ function game_element() {
         ctx.fill();
     }
     this.move = function(){
+        if(this.x + this.vx - this.size/2 <0)
+            this.vx = 0;
         this.x += this.vx;
-        //console.log(this.vy);
         this.y += this.vy;
         let flag = true;
         for(var i = 0; i < obiekty.length;i++)
         {
-            //console.log(obiekty[i]);
             if(colision(obiekty[i]))
             {
                 flag = false;
@@ -36,11 +36,9 @@ function game_element() {
         if((this.y + this.size < can_height - field.height)&&flag)
         {
             this.vy += 1;
-            //console.log(flag);
         }
         else
         {
-            //console.log(flag);
             this.vy = 0;
         }
         if(this.y + this.size > can_height - field.height)
@@ -49,4 +47,3 @@ function game_element() {
         }
     }
 }
-//export {game_element};
