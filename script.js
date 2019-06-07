@@ -31,29 +31,21 @@ function keyUpHandler(e) {
 function colision(e){
     //console.log(e.y);
     var przemieszczenie;
-    if(player.vx!=0)
+    if((player.y + player.size > e.y)&&(player.y < e.y+e.height))
     {
-        if((player.y + player.size > e.y)&&(player.y < e.y+e.height))
+        przemieszczenie = player.x + player.vx;
+        if((przemieszczenie > e.x)&&(przemieszczenie < e.x + e.lenght))
         {
-            przemieszczenie = player.x + player.vx;
-            if((przemieszczenie > e.x)&& (przemieszczenie < e.x + e.lenght))
-            {
-                return true;
-            }
+            return true;
         }
-        
     }
-    if(player.vy!=0)//To działa
+    if((player.x + player.size >= e.x)&&(player.x <= e.x + e.lenght))
     {
-        if((player.x + player.size >= e.x)&&(player.x <= e.x + e.lenght))
+        przemieszczenie = player.y + player.vy;
+        if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.height))
         {
-            przemieszczenie = player.y + player.vy;
-            if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.height))
-            {
-                return true;
-            }
+            return true;
         }
-        
     }
     return false;
 }
