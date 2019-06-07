@@ -8,10 +8,14 @@ function keyDownHandler(e){
         case 38: 
             // console.log(player.y + player.size);
             // console.log(can_height - field.height);
-            if(player.y + player.size >= can_height - field.height)
+            for(let i = 0; i < obiekty.length;i++)
             {
-                player.vy = -20;
-            };
+                //if((player.y + player.size >= can_height - field.height)||player.vy == 0)
+                if(colision(obiekty[i]))
+                {
+                    player.vy = -20;
+                }
+            }
             break; // UP
         // case 40: player.vy = 1; break; // DOWN
     }
@@ -33,7 +37,7 @@ function colision(e){
     var przemieszczenie;
     if((player.y + player.size > e.y)&&(player.y < e.y+e.height))
     {
-        przemieszczenie = player.x + player.vx;
+        przemieszczenie = player.x + player.size + player.vx;
         if((przemieszczenie > e.x)&&(przemieszczenie < e.x + e.lenght))
         {
             return true;
@@ -41,7 +45,7 @@ function colision(e){
     }
     if((player.x + player.size >= e.x)&&(player.x <= e.x + e.lenght))
     {
-        przemieszczenie = player.y + player.vy;
+        przemieszczenie = player.y + player.size + player.vy;
         if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.height))
         {
             return true;
