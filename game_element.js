@@ -22,6 +22,7 @@ function game_element() {
     }
     this.move = function(){
         this.x += this.vx;
+        //console.log(this.vy);
         this.y += this.vy;
         let flag = true;
         for(var i = 0; i < obiekty.length;i++)
@@ -32,12 +33,14 @@ function game_element() {
                 flag = false;
             }   
         }
-        if(this.y + this.size < can_height - field.height)
+        if((this.y + this.size < can_height - field.height)&&flag)
         {
             this.vy += 1;
+            //console.log(flag);
         }
         else
         {
+            //console.log(flag);
             this.vy = 0;
         }
         if(this.y + this.size > can_height - field.height)

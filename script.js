@@ -38,7 +38,6 @@ function colision(e){
             przemieszczenie = player.x + player.vx;
             if((przemieszczenie > e.x)&& (przemieszczenie < e.x + e.lenght))
             {
-                console.log("2");
                 return true;
             }
         }
@@ -51,7 +50,6 @@ function colision(e){
             przemieszczenie = player.y + player.vy;
             if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.height))
             {
-                console.log("4");
                 return true;
             }
         }
