@@ -11,6 +11,8 @@ function print()
 }
 function move()
 {
+    if(player.life==0)
+        game_over();
     player.move();
     if(player.y > canvas.height)
         death();

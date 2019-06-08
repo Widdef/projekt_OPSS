@@ -63,23 +63,13 @@ function colision(e){
 
 function game_over(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var img_game_over = new Image();
-    img_game_over.onload = function(){
-        ctx.drawImage(img_game_over,0,0);
-    }
+    img_game_over = new Image(480,270);
     img_game_over.src = "img/game_over.jpg";
+    ctx.drawImage(img_game_over,0,0);
 }
 
 function death(){
-    if(player.life > 0)
-    {
         player.life--;
         player.x = start_x;
         player.y = start_y-player.size;
-        console.log(player.life);
-    }
-    else
-    {
-        game_over();
-    }
 }

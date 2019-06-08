@@ -1,8 +1,8 @@
 var canvas = document.querySelector('#mario');
 var ctx = canvas.getContext('2d');
 
-canvas.width = 480;
-canvas.height = 270;
+canvas.width = 600;
+canvas.height = 360;
 const can_width = canvas.width;
 const can_height = canvas.height;
 var single_block = {
@@ -10,3 +10,4 @@ var single_block = {
     y: 30
 };
 var obiekty = new Array;
+var img_game_over;
