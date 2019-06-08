@@ -12,6 +12,8 @@ function print()
 function move()
 {
     player.move();
+    if(player.y > canvas.height)
+        death();
     move_map();
 }
     

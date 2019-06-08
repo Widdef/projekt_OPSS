@@ -67,13 +67,16 @@ function game_over(){
     img_game_over.onload = function(){
         ctx.drawImage(img_game_over,0,0);
     }
-    img_game_over.src = "";
+    img_game_over.src = "img/game_over.jpg";
 }
 
 function death(){
     if(player.life > 0)
     {
         player.life--;
+        player.x = start_x;
+        player.y = start_y-player.size;
+        console.log(player.life);
     }
     else
     {

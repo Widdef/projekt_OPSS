@@ -11,9 +11,9 @@ var player = new game_element;
 player.size = 10;
 player.type = 0;
 player.color = `rgb(120,40,255)`;
-player.x = player.size + 10;
-player.y = field.y - player.size;
 player.life = 3;
+var start_x = player.x = player.size + 10;
+var start_y = player.y = field.y - player.size;
 
 var blok = new Array;
 for(var i = 0; i < 3; i++)
