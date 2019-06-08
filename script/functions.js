@@ -61,10 +61,22 @@ function colision(e){
     return false;
 }
 
+function game_over(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var img_game_over = new Image();
+    img_game_over.onload = function(){
+        ctx.drawImage(img_game_over,0,0);
+    }
+    img_game_over.src = "";
+}
+
 function death(){
     if(player.life > 0)
     {
         player.life--;
-        
+    }
+    else
+    {
+        game_over();
     }
 }
