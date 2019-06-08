@@ -1,8 +1,8 @@
 var canvas = document.querySelector('#mario');
 var ctx = canvas.getContext('2d');
 
-canvas.width = 600;
-canvas.height = 360;
+canvas.width = 1200;
+canvas.height = 720;
 const can_width = canvas.width;
 const can_height = canvas.height;
 var single_block = {

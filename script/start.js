@@ -5,9 +5,10 @@ function print()
 {
     player.rysowanie();
     field.rysowanie();
-    blok[0].rysowanie();
-    blok[1].rysowanie();
-    blok[2].rysowanie();
+    for(var i = 0; i<number;i++)
+    {
+        blok[i].rysowanie();
+    }
 }
 function move()
 {
