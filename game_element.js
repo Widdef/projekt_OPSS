@@ -21,7 +21,7 @@ function game_element() {
         ctx.fill();
     }
     this.move = function(){
-        if(this.x + this.vx - this.size/2 <0)
+        if(this.x + this.vx - this.size <0)
             this.vx = 0;
         this.x += this.vx;
         this.y += this.vy;
@@ -33,17 +33,14 @@ function game_element() {
                 flag = false;
             }   
         }
-        if((this.y + this.size < can_height - field.height)&&flag)
+        if(flag)
         {
-            this.vy += 1;
+            if(this.vy <25)
+                this.vy += 1;
         }
         else
         {
             this.vy = 0;
-        }
-        if(this.y + this.size > can_height - field.height)
-        {
-            this.y = can_height - field.height - this.size;
         }
     }
 }
