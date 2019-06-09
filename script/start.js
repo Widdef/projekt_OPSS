@@ -5,7 +5,7 @@ function print()
 {
     player.rysowanie();
     field.rysowanie();
-    for(var i = 0; i<number;i++)
+    for(var i = 1; i<number;i++)
     {
         blok[i].rysowanie();
     }
