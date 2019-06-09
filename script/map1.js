@@ -115,3 +115,36 @@ obiekty[number].type = 1;
 obiekty[number].y = can_height - field.height - single_block.y*5;
 obiekty[number].x = 1950;
 number++;
+
+obiekty[number] = new game_element;
+obiekty[number].x = 2130;
+obiekty[number].type = 1;
+obiekty[number].height = 30;
+obiekty[number].color = `rgb(0,255,0)`;
+obiekty[number].y = can_height - obiekty[number].height;
+obiekty[number].lenght = 450;
+number++;
+
+for(var i = 0; i < 3; i++)
+{
+    obiekty[number] = new game_element;
+    obiekty[number].color = `rgb(150,75,0)`;
+    obiekty[number].lenght = single_block.x;
+    obiekty[number].height = single_block.y;
+    obiekty[number].type = 1;
+    obiekty[number].y = can_height - field.height - single_block.y*4;
+    obiekty[number].x = 2340 + i*single_block.x;
+    number++;
+}
+
+for(var i = 0; i < 8; i++)
+{
+    obiekty[number] = new game_element;
+    obiekty[number].color = `rgb(150,75,0)`;
+    obiekty[number].lenght = single_block.x;
+    obiekty[number].height = single_block.y;
+    obiekty[number].type = 1;
+    obiekty[number].y = can_height - field.height - single_block.y*8;
+    obiekty[number].x = 2430 + i*single_block.x;
+    number++;
+}

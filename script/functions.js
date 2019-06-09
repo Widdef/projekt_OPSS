@@ -43,7 +43,7 @@ function move_map(){
 
 function colisionY(e){
     var przemieszczenie;
-    if((player.x + player.size >= e.x)&&(player.x <= e.x + e.lenght))
+    if((player.x + player.size > e.x)&&((player.x - player.size) < e.x + e.lenght))
     {
         if(player.vy < 0)
             przemieszczenie = player.y + player.vy - player.size/2;
