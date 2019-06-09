@@ -23,12 +23,23 @@ function game_element() {
     this.move = function(){
         if(this.x + this.vx - this.size <0)
             this.vx = 0;
-        this.x += this.vx;
-        this.y += this.vy;
         let flag = true;
         for(var i = 0; i < obiekty.length;i++)
         {
-            if(colision(obiekty[i]))
+            if(colisionX(obiekty[i]))
+            {
+                flag = false;
+            }   
+        }
+        if(!flag)
+        {
+            this.vx = 0;
+        }
+        this.x += this.vx;
+        flag = true;
+        for(var i = 0; i < obiekty.length;i++)
+        {
+            if(colisionY(obiekty[i]))
             {
                 flag = false;
             }   
@@ -42,5 +53,6 @@ function game_element() {
         {
             this.vy = 0;
         }
+        this.y += this.vy;
     }
 }

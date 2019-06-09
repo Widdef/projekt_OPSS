@@ -7,7 +7,7 @@ function print()
     field.rysowanie();
     for(var i = 1; i<number;i++)
     {
-        blok[i].rysowanie();
+        obiekty[i].rysowanie();
     }
 }
 function move()

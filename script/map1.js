@@ -5,7 +5,7 @@ field.type = 1;
 field.height = 30;
 field.color = `rgb(0,255,0)`;
 field.y = can_height - field.height;
-field.lenght = 2100;
+field.lenght = 2070;
 obiekty[0] = field;
 number++;
 
@@ -14,31 +14,104 @@ player.size = 15;
 player.type = 0;
 player.color = `rgb(120,40,255)`;
 player.life = 3;
-player.x = player.size + 10;
+player.x = 120;
 player.y = field.y - player.size-15;
 var start_x = player.x;
 var start_y = player.y;
 
-var blok = new Array;
-
-var blok_poj = new game_element;
-blok_poj.color = `rgb(150,75,0)`;
-blok_poj.lenght = single_block.x;
-blok_poj.height = single_block.y;
-blok_poj.type = 1;
-blok_poj.y = can_height - field.height - single_block.y*4;
-blok_poj.x = 510;
-obiekty[1] = blok_poj;
+obiekty[number] = new game_element;
+obiekty[number].color = `rgb(150,75,0)`;
+obiekty[number].lenght = single_block.x;
+obiekty[number].height = single_block.y;
+obiekty[number].type = 1;
+obiekty[number].y = can_height - field.height - single_block.y*4;
+obiekty[number].x = 510;
 number++;
 for(var i = 0; i < 5; i++)
 {
-    blok[i] = new game_element;
-    blok[i].color = `rgb(150,75,0)`;
-    blok[i].lenght = single_block.x;
-    blok[i].height = single_block.y;
-    blok[i].type = 1;
-    blok[i].y = can_height - field.height - single_block.y*4;
-    blok[i].x = 600 + i*single_block.x;
-    obiekty[number+i] = blok[i];
+    obiekty[number] = new game_element;
+    obiekty[number].color = `rgb(150,75,0)`;
+    obiekty[number].lenght = single_block.x;
+    obiekty[number].height = single_block.y;
+    obiekty[number].type = 1;
+    obiekty[number].y = can_height - field.height - single_block.y*4;
+    obiekty[number].x = 630 + i*single_block.x;
+    number++;
 }
-number+=5;
+
+obiekty[number] = new game_element;
+obiekty[number].color = `rgb(150,75,0)`;
+obiekty[number].lenght = single_block.x;
+obiekty[number].height = single_block.y;
+obiekty[number].type = 1;
+obiekty[number].y = can_height - field.height - single_block.y*8;
+obiekty[number].x = 690;
+number++;
+
+for(var i = 0; i < 2; i++)
+{
+    for(var j = 0; j < 2; j++)
+    {
+        obiekty[number] = new game_element;
+        obiekty[number].color = `rgb(0,255,0)`;
+        obiekty[number].lenght = single_block.x;
+        obiekty[number].height = single_block.y;
+        obiekty[number].type = 1;
+        obiekty[number].y = can_height - field.height - single_block.y*(i+1);
+        obiekty[number].x = 870 + single_block.x * j;
+        number++;
+    }
+}
+
+for(var i = 0; i < 3; i++)
+{
+    for(var j = 0; j < 2; j++)
+    {
+        obiekty[number] = new game_element;
+        obiekty[number].color = `rgb(0,255,0)`;
+        obiekty[number].lenght = single_block.x;
+        obiekty[number].height = single_block.y;
+        obiekty[number].type = 1;
+        obiekty[number].y = can_height - field.height - single_block.y*(i+1);
+        obiekty[number].x = 1170 + single_block.x * j;
+        number++;
+    }
+}
+
+for(var i = 0; i < 4; i++)
+{
+    for(var j = 0; j < 2; j++)
+    {
+        obiekty[number] = new game_element;
+        obiekty[number].color = `rgb(0,255,0)`;
+        obiekty[number].lenght = single_block.x;
+        obiekty[number].height = single_block.y;
+        obiekty[number].type = 1;
+        obiekty[number].y = can_height - field.height - single_block.y*(i+1);
+        obiekty[number].x = 1410 + single_block.x * j;
+        number++;
+    }
+}
+
+for(var i = 0; i < 4; i++)
+{
+    for(var j = 0; j < 2; j++)
+    {
+        obiekty[number] = new game_element;
+        obiekty[number].color = `rgb(0,255,0)`;
+        obiekty[number].lenght = single_block.x;
+        obiekty[number].height = single_block.y;
+        obiekty[number].type = 1;
+        obiekty[number].y = can_height - field.height - single_block.y*(i+1);
+        obiekty[number].x = 1740 + single_block.x * j;
+        number++;
+    }
+}
+obiekty[number] = new game_element;
+obiekty[number].color = `rgb(150,75,0)`;
+obiekty[number].lenght = single_block.x;
+obiekty[number].height = single_block.y;
+obiekty[number].type = 1;
+obiekty[number].y = can_height - field.height - single_block.y*5;
+obiekty[number].x = 1950;
+number++;

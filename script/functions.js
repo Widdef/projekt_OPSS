@@ -8,7 +8,7 @@ function keyDownHandler(e){
             for(let i = 0; i < obiekty.length;i++)
             {
                 console.log(i + "" + obiekty[i]);
-                if(!colision(obiekty[i]))
+                if(!colisionY(obiekty[i]))
                 {
                     if(player.vy == 0)
                     {
@@ -41,19 +41,29 @@ function move_map(){
     }
 }
 
-function colision(e){
+function colisionY(e){
     var przemieszczenie;
     if((player.x + player.size >= e.x)&&(player.x <= e.x + e.lenght))
     {
-        przemieszczenie = player.y + player.size + player.vy;
+        if(player.vy < 0)
+            przemieszczenie = player.y + player.vy - player.size/2;
+        else
+            przemieszczenie = player.y + player.vy + player.size;
         if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.height))
         {
             return true;
         }
     }
-    if((player.y + player.size > e.y)&&(player.y < e.y+e.height))
+    return false;
+}
+function colisionX(e){
+    var przemieszczenie;
+    if((player.y + player.size-1 > e.y)&&(player.y < e.y+e.height))
     {
-        przemieszczenie = player.x + player.size + player.vx;
+        if(player.vx < 0)
+            przemieszczenie = player.x + player.vx - 15;
+        else
+            przemieszczenie = player.x + player.size + player.vx;
         if((przemieszczenie > e.x)&&(przemieszczenie < e.x + e.lenght))
         {
             return true;
