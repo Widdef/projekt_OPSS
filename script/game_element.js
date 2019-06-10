@@ -3,8 +3,8 @@ function game_element() {
     this.life;
     this.lenght;
     this.height;
-    this.x;
-    this.y;
+    this.x = 0;
+    this.y = 0;
     this.vx = 0;
     this.vy = 0;
     this.color;

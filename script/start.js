@@ -1,5 +1,6 @@
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
+player.life = 3;
 
 function print()
 {
@@ -12,11 +13,13 @@ function print()
 }
 function move()
 {
-    if(player.life==0)
+    if(player.life<=0)
         game_over();
     player.move();
     if(player.y > canvas.height)
+    {
         death();
+    }
     move_map();
 }
     
@@ -27,4 +30,5 @@ function callback()
     print();
     move();
 }
+map1();
 window.requestAnimationFrame(callback);

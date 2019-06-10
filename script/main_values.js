@@ -10,4 +10,26 @@ var single_block = {
     y: 30
 };
 var obiekty = new Array;
+var number = 0;
+
+var field = new game_element;
+field.x = 0;
+field.type = 1;
+field.height = 30;
+field.color = `rgb(0,255,0)`;
+field.y = can_height - field.height;
+field.lenght = 2070;
+obiekty[0] = field;
+number++;
+
+var player = new game_element;
+player.size = 15;
+player.type = 0;
+player.color = `rgb(120,40,255)`;
+player.life = 3;
+player.x = 120;
+player.y = field.y - player.size-15;
+var start_x = player.x;
+var start_y = player.y;
+
 var img_game_over;

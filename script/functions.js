@@ -7,7 +7,6 @@ function keyDownHandler(e){
         case 38: 
             for(let i = 0; i < obiekty.length;i++)
             {
-                console.log(i + "" + obiekty[i]);
                 if(!colisionY(obiekty[i]))
                 {
                     if(player.vy == 0)
@@ -81,6 +80,7 @@ function game_over(){
 
 function death(){
         player.life--;
+        map1();
         player.x = start_x;
         player.y = start_y-player.size;
 }
