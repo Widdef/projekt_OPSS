@@ -91,3 +91,12 @@ function win(){
     img_end.src = "img/win.jpg";
     ctx.drawImage(img_end,0,0);
 }
+
+function life()
+{
+    ctx.font = "40px Arial";
+    ctx.fillStyle = 'white';
+    ctx.textBaseline = "top";
+    ctx.textAlign = "center";
+    ctx.fillText("Życia: " + player.life, 200 , 50);
+};

@@ -19,6 +19,7 @@ function print()
     {
         obiekty[i].rysowanie();
     }
+    life();
 }
 function move()
 {
