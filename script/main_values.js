@@ -12,6 +12,7 @@ var single_block = {
 var sound = new Sound("music/ThemeSong.mp3");
 var obiekty = new Array;
 var number = 0;
+var img_end;
 
 var field = new game_element;
 field.type = 1;
@@ -23,11 +24,13 @@ obiekty[0] = field;
 number++;
 
 var player = new game_element;
-player.size = 15;
+player.size = 30;
 player.type = 0;
 player.color = `rgb(120,40,255)`;
 player.life = 3;
 player.x = 120;
-player.y = field.y - player.size-15;
+player.y = field.y - player.size;
+player.image = new Image(30,30);
+player.image.src = "img/player/player.png";
 var start_x = player.x;
 var start_y = player.y;

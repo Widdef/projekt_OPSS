@@ -9,16 +9,18 @@ function game_element() {
     this.vy = 0;
     this.color;
     this.type;
+    this.image;
     this.rysowanie = function(){
-        ctx.beginPath();
-        ctx.fillStyle = this.color;
         switch(this.type)
         {
-            case 0: ctx.arc(this.x, this.y, this.size, 0, Math.PI*2); break;
-            case 1: ctx.rect(this.x,this.y,this.lenght,this.height); break;
+            case 0: ctx.drawImage(this.image,this.x,this.y); break;
+            case 1: ctx.beginPath();
+                    ctx.fillStyle = this.color;
+                    ctx.rect(this.x,this.y,this.lenght,this.height); 
+                    ctx.stroke();
+                    ctx.fill();
+                    break;
         }
-        ctx.stroke();
-        ctx.fill();
     }
     this.move = function(){
         if(this.x + this.vx - this.size <0)

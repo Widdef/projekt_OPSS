@@ -42,10 +42,10 @@ function move_map(){
 
 function colisionY(e){
     var przemieszczenie;
-    if((player.x + player.size > e.x)&&((player.x - player.size) < e.x + e.lenght))
+    if((player.x + player.size > e.x)&&(player.x < e.x + e.lenght))
     {
         if(player.vy < 0)
-            przemieszczenie = player.y + player.vy - player.size/2;
+            przemieszczenie = player.y + player.vy;
         else
             przemieszczenie = player.y + player.vy + player.size;
         if((przemieszczenie > e.y)&& (przemieszczenie < e.y + e.height))
@@ -60,7 +60,7 @@ function colisionX(e){
     if((player.y + player.size-1 > e.y)&&(player.y < e.y+e.height))
     {
         if(player.vx < 0)
-            przemieszczenie = player.x + player.vx - 15;
+            przemieszczenie = player.x + player.vx;
         else
             przemieszczenie = player.x + player.size + player.vx;
         if((przemieszczenie > e.x)&&(przemieszczenie < e.x + e.lenght))
@@ -73,9 +73,9 @@ function colisionX(e){
 
 function game_over(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var img_game_over = new Image(480,270);
-    img_game_over.src = "img/game_over.jpg";
-    ctx.drawImage(img_game_over,0,0);
+    img_end = new Image(480,270);
+    img_end.src = "img/game_over.jpg";
+    ctx.drawImage(img_end,0,0);
 }
 
 function death(){
@@ -87,7 +87,7 @@ function death(){
 
 function win(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    var img_win = new Image(480,270);
-    img_win.src = "img/win.jpg";
-    ctx.drawImage(img_win,0,0);
+    img_end = new Image(480,270);
+    img_end.src = "img/win.jpg";
+    ctx.drawImage(img_end,0,0);
 }
