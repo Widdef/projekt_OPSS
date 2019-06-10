@@ -14,8 +14,14 @@ function print()
 function move()
 {
     if(player.life<=0)
+    {
         game_over();
+    }
     player.move();
+    if(player.x >= obiekty[number-1].x)
+    {
+        win();
+    }
     if(player.y > canvas.height)
     {
         death();

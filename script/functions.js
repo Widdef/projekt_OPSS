@@ -73,14 +73,21 @@ function colisionX(e){
 
 function game_over(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    img_game_over = new Image(480,270);
+    var img_game_over = new Image(480,270);
     img_game_over.src = "img/game_over.jpg";
     ctx.drawImage(img_game_over,0,0);
 }
 
 function death(){
-        player.life--;
-        map1();
-        player.x = start_x;
-        player.y = start_y-player.size;
+    player.life--;
+    map1();
+    player.x = start_x;
+    player.y = start_y-player.size;
+}
+
+function win(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var img_win = new Image(480,270);
+    img_win.src = "img/win.jpg";
+    ctx.drawImage(img_win,0,0);
 }

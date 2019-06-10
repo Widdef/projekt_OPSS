@@ -13,7 +13,6 @@ var obiekty = new Array;
 var number = 0;
 
 var field = new game_element;
-field.x = 0;
 field.type = 1;
 field.height = 30;
 field.color = `rgb(0,255,0)`;
@@ -31,5 +30,3 @@ player.x = 120;
 player.y = field.y - player.size-15;
 var start_x = player.x;
 var start_y = player.y;
-
-var img_game_over;
