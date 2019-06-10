@@ -9,6 +9,7 @@ var single_block = {
     x: 30,
     y: 30
 };
+var sound = new Sound("music/ThemeSong.mp3");
 var obiekty = new Array;
 var number = 0;
 

@@ -37,4 +37,5 @@ function callback()
     move();
 }
 map1();
+sound.play();
 window.requestAnimationFrame(callback);
