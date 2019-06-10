@@ -23,7 +23,7 @@ function game_element() {
         }
     }
     this.move = function(){
-        if(this.x + this.vx - this.size <0)
+        if(this.x + this.vx<0)
             this.vx = 0;
         let flag = true;
         for(var i = 0; i < obiekty.length;i++)

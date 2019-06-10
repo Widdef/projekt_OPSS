@@ -13,6 +13,7 @@ var sound = new Sound("music/ThemeSong.mp3");
 var obiekty = new Array;
 var number = 0;
 var img_end;
+var animacja = 0;
 
 var field = new game_element;
 field.type = 1;

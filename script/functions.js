@@ -42,7 +42,7 @@ function move_map(){
 
 function colisionY(e){
     var przemieszczenie;
-    if((player.x + player.size > e.x)&&(player.x < e.x + e.lenght))
+    if((player.x + player.size > e.x)&&(player.x+1 < e.x + e.lenght))
     {
         if(player.vy < 0)
             przemieszczenie = player.y + player.vy;
@@ -62,7 +62,7 @@ function colisionX(e){
         if(player.vx < 0)
             przemieszczenie = player.x + player.vx;
         else
-            przemieszczenie = player.x + player.size + player.vx;
+            przemieszczenie = player.x + player.size + 1 + player.vx;
         if((przemieszczenie > e.x)&&(przemieszczenie < e.x + e.lenght))
         {
             return true;

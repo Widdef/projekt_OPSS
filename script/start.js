@@ -4,6 +4,15 @@ player.life = 3;
 
 function print()
 {
+    if(player.vx != 0)
+    {
+        player.image.src = "img/player/player_move_" + (animacja++%3) + ".png";
+    }
+    else
+    {
+        animacja = 0;
+        player.image.src = "img/player/player.png";
+    }
     player.rysowanie();
     field.rysowanie();
     for(var i = 1; i<number;i++)
